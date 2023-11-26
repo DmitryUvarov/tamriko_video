@@ -1,0 +1,48 @@
+.politic {
+  @include adaptiveValue("padding-top", 100, 48);
+  @include adaptiveValue("padding-bottom", 100, 48);
+  &__container {
+  }
+
+  &__body {
+    color: #212121;
+    font-family: Helvetica;
+    @include adaptiveValue("font-size", 18, 16);
+    font-style: normal;
+
+    line-height: 150%;
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: rem(24);
+      }
+    }
+
+    a {
+      transition: all 0.3s ease 0s;
+      @media (any-hover: hover) {
+        &:hover {
+          text-decoration: underline;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: rem(18);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: rem(30);
+  }
+
+  &__text {
+    margin-bottom: rem(48);
+  }
+
+  &__subtitle {
+    font-size: rem(18);
+    text-transform: uppercase;
+    margin-top: rem(50);
+  }
+}

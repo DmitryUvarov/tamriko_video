@@ -1,0 +1,83 @@
+//====================================================================================================
+.footer {
+	background-image: url("@img/footer/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	@media (min-width: $mobile) {
+		min-height: rem(740);
+	}
+	@media (max-width: $mobile) {
+		background-image: url("@img/footer/bg1.jpg");
+		background-position: bottom;
+	}
+
+	&__container {
+	}
+
+	&__items {
+		@include adaptiveValue("padding-top", 100, 48);
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: rem(16);
+		@include adaptiveValue("column-gap", 150, 19, 0, 1215, 767);
+
+		@media (max-width: $mobile) {
+			display: grid;
+			grid-auto-flow: column;
+			grid-template-rows: auto auto;
+			padding-bottom: rem(155);
+		}
+	}
+
+	&__list {
+		&_social {
+			@media (max-width: $mobile) {
+				align-self: end;
+				margin-left: auto;
+			}
+		}
+	}
+
+	&__item {
+		color: #fff;
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: 150%;
+		transition: all 0.3s ease 0s;
+		&:not(:last-child) {
+			margin-bottom: rem(8);
+			@media (max-width: $mobile) {
+				margin-bottom: rem(16);
+			}
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+				opacity: 0.8;
+			}
+		}
+	}
+
+	&__list-social {
+		@media (max-width: $mobile) {
+			align-self: end;
+		}
+	}
+
+	&__social {
+		font-size: rem(47);
+		color: #fff;
+		transition: all 0.3s ease 0s;
+		text-align: end;
+
+		@media (any-hover: hover) {
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+}
+
+//====================================================================================================

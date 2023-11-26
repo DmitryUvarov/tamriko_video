@@ -1,0 +1,369 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+.title {
+  @include adaptiveValue("font-size", 18, 16);
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+//========================================================================================================================================================
+
+.guide {
+  position: relative;
+  @include adaptiveValue("max-width", 870, 610, 0, 1245, 767);
+  width: 100%;
+
+  &_dark {
+    .guide__title {
+      color: #212121;
+    }
+  }
+
+  &__content {
+    @include adaptiveValue("max-width", 870, 610, 0, 1245, 767);
+    width: 100%;
+    margin: 0 auto;
+
+    &_pc {
+      @media (max-width: $mobile) {
+        display: none;
+      }
+    }
+    &_mob {
+      @media (min-width: $mobile) {
+        display: none;
+      }
+      @media (max-width: $mobile) {
+        // padding-left: calc(percent(110, 737));
+        // padding-left: rem(40);
+        @include adaptiveValue("padding-left", 95, 20, 0, 767, 390);
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    display: block;
+    width: max-content;
+
+    color: #9d0102;
+
+    span {
+      color: #fff;
+    }
+    @include adaptiveValue("font-size", 150, 70);
+    font-weight: 400;
+    line-height: 150%;
+    @media (max-width: $mobile) {
+      @include adaptiveValue("margin-left", 34, 22, 0, 767, 390);
+      //   @include adaptiveValue("padding-left", 40, 25, 0, 767, 390);
+    }
+    &_left {
+      @include adaptiveValue("margin-left", 167, 115, 0, 1245, 767);
+      @include adaptiveValue("margin-top", -30, -17);
+
+      @media (max-width: $mobile) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__label {
+    position: absolute;
+    bottom: rem(-9);
+    left: rem(7);
+    color: #aa2f1e;
+    @include adaptiveValue("font-size", 18, 12);
+    font-weight: 700;
+    line-height: 150%;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    color: #212121;
+    @include adaptiveValue("font-size", 18, 16);
+    line-height: 150%;
+    font-weight: 300;
+
+    @include adaptiveValue("margin-left", 177, 125, 0, 1245, 767);
+
+    @media (max-width: $mobile) {
+      color: #fff;
+      margin-left: percent(110, 360);
+    }
+
+    small {
+      font-size: rem(16);
+      @media (max-width: $mobile) {
+        font-size: rem(14);
+      }
+    }
+  }
+
+  &__button {
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    column-gap: rem(2);
+    @include adaptiveValue("font-size", 22, 16);
+    line-height: 150%;
+    position: absolute;
+    top: 0;
+    @include adaptiveValue("right", -105, -45);
+    @media (max-width: $mobile) {
+      top: rem(-20);
+    }
+
+    &::before {
+      @include adaptiveValue("font-size", 28, 21);
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.textlines {
+  line-height: 150%;
+
+  &_dot {
+    .textlines__line {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      &::after {
+        content: "";
+        width: rem(8);
+        height: rem(8);
+        border-radius: 50%;
+        display: inline-block;
+        background-color: #212121;
+        flex-shrink: 0;
+        margin-right: rem(11);
+        margin-top: rem(8);
+      }
+    }
+  }
+  &__line {
+    position: relative;
+    padding: rem(8) 0;
+
+    &::before {
+      content: "";
+      background-color: #515151;
+      position: absolute;
+      width: rem(300);
+      height: rem(0.5);
+      bottom: 0;
+      left: 0;
+    }
+
+    &:not(:first-child) {
+      margin-top: rem(8);
+    }
+    &_1 {
+      max-width: 347px;
+      &::before {
+        left: rem(-94);
+      }
+    }
+
+    &_2 {
+      max-width: 347px;
+      &::before {
+        width: rem(185);
+        left: rem(-58);
+      }
+    }
+
+    &_3 {
+      max-width: 505px;
+      &::before {
+        width: rem(185);
+        left: rem(-68);
+      }
+    }
+
+    &_4 {
+      max-width: 298px;
+      &::before {
+        width: rem(185);
+        left: rem(-44);
+      }
+    }
+
+    &_5 {
+      max-width: 225px;
+      &::before {
+        width: rem(185);
+        left: rem(-163);
+      }
+    }
+
+    &_6 {
+      max-width: 225px;
+      &::before {
+        width: rem(225);
+        left: rem(0);
+      }
+    }
+
+    &_7 {
+      max-width: rem(350);
+      &::before {
+        width: rem(181);
+        left: rem(-26);
+      }
+    }
+  }
+}
+.quote {
+  align-self: flex-end;
+  text-align: right;
+  @include adaptiveValue("font-size", 18, 16);
+  @media (max-width: $mobile) {
+    text-align: center;
+  }
+
+  &_white {
+    .quote__text,
+    .quote__author {
+      color: #fff;
+    }
+  }
+  &_dark {
+    .quote__text::before {
+      background-color: #515151;
+    }
+  }
+
+  &__text {
+    color: #212121;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+
+    padding-bottom: rem(8);
+
+    text-transform: uppercase;
+    max-width: rem(700);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100vw;
+      height: rem(1);
+      bottom: 0;
+      left: rem(130);
+      background-color: #fff;
+
+      @media (max-width: $mobile) {
+        width: percent(204, 250);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+  }
+
+  &__author {
+    margin-top: rem(8);
+    color: #000;
+    font-size: toRem(16);
+    font-weight: 300;
+    line-height: 150%;
+    @media (max-width: $mobile) {
+      text-align: right;
+    }
+  }
+
+  &__subtitle {
+    line-height: 150%;
+    margin-top: rem(8);
+  }
+}
+
+//========================================================================================================================================================
+
+.pagination {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: rem(20);
+
+  .swiper-pagination-bullet {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #212121;
+    background-color: #f8f8f7;
+    border-radius: 50%;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: rem(-8);
+      left: rem(-8);
+      right: rem(-8);
+      bottom: rem(-8);
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #212121;
+  }
+}
+.navigation {
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  &__button {
+    pointer-events: all;
+    color: #212121;
+    @include adaptiveValue("font-size", 60, 45);
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #515151;
+      }
+    }
+
+    &::before {
+      @extend %ic;
+    }
+
+    &.swiper-button-disabled {
+      color: #515151;
+      opacity: 0.7;
+    }
+
+    &_white {
+      color: #fff;
+    }
+  }
+  .button-prev {
+    &::before {
+      content: "\e901";
+    }
+  }
+  .button-next {
+    &::before {
+      content: "\e902";
+    }
+  }
+}
+
+//========================================================================================================================================================
