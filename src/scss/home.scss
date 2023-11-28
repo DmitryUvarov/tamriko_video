@@ -822,11 +822,11 @@
   &__guide {
     @media (max-width: $mobile) {
       margin: 0 auto;
+      @include adaptiveValue("max-width", 250, 200, 0, 767, 390);
     }
 
-    max-width: rem(335) !important;
-    @media (max-width: $mobile) {
-      @include adaptiveValue("max-width", 250, 200, 0, 767, 390);
+    @media (min-width: $mobile) {
+      max-width: rem(335) !important;
     }
 
     @media (min-width: $tablet) {
@@ -852,7 +852,7 @@
     .guide__title_left {
       margin-left: rem(65);
       @media (max-width: $mobile) {
-        margin-left: rem(45);
+        margin-left: rem(45) !important;
       }
     }
   }
