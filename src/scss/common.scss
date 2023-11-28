@@ -64,7 +64,7 @@
       @include adaptiveValue("margin-top", -30, -17);
 
       @media (max-width: $mobile) {
-        margin-left: 0;
+        margin-left: 0 !important;
       }
     }
   }
@@ -275,7 +275,7 @@
   &__author {
     margin-top: rem(8);
     color: #000;
-    font-size: toRem(16);
+    font-size: rem(16);
     font-weight: 300;
     line-height: 150%;
     @media (max-width: $mobile) {
